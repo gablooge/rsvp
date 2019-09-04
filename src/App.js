@@ -1,10 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import DataList from './components/Google/DataList'
 
 function App() {
+  
+  
   return (
     <div className="App">
+      <pre id="content" style={{whiteSpace: 'pre-wrap'}}></pre>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +23,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <DataList />
     </div>
   );
 }

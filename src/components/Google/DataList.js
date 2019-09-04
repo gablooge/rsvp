@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import config from './config';
-import {load} from './sheet';
+import {load} from './utils';
 
 class DataList extends Component {
 

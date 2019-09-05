@@ -1,21 +1,29 @@
 import React, { Component, Fragment } from 'react';
-import config from './config';
-import {load} from './utils';
+import config from './Sheet/config';
+import {push} from './Sheet/visitors';
+
+const data = [
+  ['1', 'Achmad Mustakim', '085850062823', '1', 'Unduh Mantu', '', '']
+];
 
 class DataList extends Component {
 
   state = {
-    cars: [],
+    visitors: [],
     error: null
   }
 
   onLoad = (data, error) => {
     if (data) {
-      const cars = data.cars;
-      this.setState({ cars });
+      const visitors = data.visitors;
+      this.setState({ visitors });
     } else {
       this.setState({ error });
     }
+  };
+
+  onPush = (data, error) => {
+    console.log(data);
   };
 
   initClient = () => {
@@ -28,7 +36,8 @@ class DataList extends Component {
       })
       .then(() => {
       // 3. Initialize and make the API request.
-      load(this.onLoad);
+      //load(this.onLoad);
+      push(data, this.onPush);
     });
   };
 
@@ -43,7 +52,7 @@ class DataList extends Component {
   }
 
   render() {
-    const { cars, error } = this.state;
+    const { visitors, error } = this.state;
     if (error) {
       if(typeof error == 'object'){
         return <div>{error.message}</div>;
@@ -53,9 +62,9 @@ class DataList extends Component {
     return (
       <Fragment>
         <ul>
-          {cars.map((car, i) => (
+          {visitors.map((visitor, i) => (
             <li key={i}>
-              {car.year} {car.make} {car.model}
+              {visitor.no} {visitor.nama_lengkap} {visitor.kontak}
             </li>
           ))}
         </ul>

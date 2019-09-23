@@ -1,10 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import DataList from './components/Google/DataList'
 
 function App() {
-  
   
   return (
     <div className="App">
@@ -23,7 +21,6 @@ function App() {
           Learn React
         </a>
       </header>
-      <DataList />
     </div>
   );
 }

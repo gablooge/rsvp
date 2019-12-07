@@ -7,3 +7,6 @@ from rest_framework import generics
 class RSVPListCreate(generics.ListCreateAPIView):
 	queryset = RSVP.objects.all()
 	serializer_class = RSVPSerializer
+
+def index(request):
+	return render(request, 'frontend/index.html')

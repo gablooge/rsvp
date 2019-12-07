@@ -664,13 +664,28 @@
 
             submitHandler: function (form) {
                 $("#loader").css("display", "inline-block");
+                var data = {};
+                data.name = $('input[name=name]').val();
+                data.email = $('input[name=email]').val();
+                data.guest = $('select[name=guest]').val();
+                data.event = $('select[name=event]').val();
+                data.message = $('textarea[name=message]').val();
                 $.ajax({
                     type: "POST",
-                    url: "mail.php",
-                    data: $(form).serialize(),
+                    url: "/api/rsvp/",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(data),
+                    beforeSend: function (xhr, settings) {
+                        var csrf_token = $("input[name=csrfmiddlewaretoken]").val();
+                        xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                    },
                     success: function () {
                         $( "#loader").hide();
-                        $( "#success").slideDown( "slow" );
+                        $( "#success").slideDown( "slow", function() {
+                            if ($(this).is(':visible'))
+                                $(this).css('display','inline-block');
+                        });
                         setTimeout(function() {
                         $( "#success").slideUp( "slow" );
                         }, 3000);
@@ -678,7 +693,10 @@
                     },
                     error: function() {
                         $( "#loader").hide();
-                        $( "#error").slideDown( "slow" );
+                        $( "#error").slideDown( "slow", function() {
+                            if ($(this).is(':visible'))
+                                $(this).css('display','inline-block');
+                        });
                         setTimeout(function() {
                         $( "#error").slideUp( "slow" );
                         }, 3000);

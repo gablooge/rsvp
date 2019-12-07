@@ -1,0 +1,181 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+
+{% block extrajs %}
+	<!-- All JavaScript files
+    ================================================== -->
+    <script src="{% static "frontend/assets/js/jquery.min.js" %}"></script>
+    <script src="{% static "frontend/assets/js/bootstrap.min.js" %}"></script>
+	
+    <!-- Plugins for this template -->
+    <script src="{% static "frontend/assets/js/jquery-plugin-collection.js" %}"></script>
+
+    <!-- Custom script for this template -->
+    <script src="{% static "frontend/assets/js/script.js" %}"></script>
+    <script type="text/javascript">
+    </script>
+{% endblock %}
+
+{% block content %}
+	<!-- start page-wrapper -->
+    <div class="page-wrapper flower-fixed-body">
+
+        <!-- start preloader -->
+        <div class="preloader">
+            <div class="inner">
+                <span class="icon"><i class="fi flaticon-bride"></i></span>
+            </div>
+            <!-- <div class="middle">
+                <i class="fi flaticon-favorite-heart-button"></i>
+                <i class="fi flaticon-favorite-heart-button"></i>
+                <i class="fi flaticon-favorite-heart-button"></i>
+                <i class="fi flaticon-favorite-heart-button"></i>
+            </div> -->
+        </div>
+        <!-- end preloader --> 
+
+        <!-- Start header -->
+        <header id="header" class="site-header header-style-1">
+            <div class="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-xs-12">
+                            <div class="site-logo">
+                                <a href="index.html">
+                                    <h1>Linda & Samsul</h1>
+                                    <span>We're getting married</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end topbar -->
+
+            <!-- <nav class="navigation navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="open-btn">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse navigation-holder">
+                        <button class="close-navbar"><i class="ti-close"></i></button>
+                        <ul class="nav navbar-nav">
+                            <li><a href="#home.html">Home</a></li>
+                            <li><a href="#rsvp.html">RSVP</a></li>
+                            <li><a href="#contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> -->
+
+        </header>
+        <!-- end of header -->
+		
+		<!-- start page-title -->
+        <section class="page-title">
+            <div class="page-title-container">
+                <div class="page-title-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-xs-12">
+                                <h2>RSVP</h2>
+                            </div>
+                        </div> <!-- end row -->
+                    </div> <!-- end container -->
+                </div>
+            </div>
+            <div class="pattern">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+        <!-- end page-title -->
+
+        <!-- start contact-section -->
+        <section class="contact-section section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                        <div class="section-title">
+                            <h2>Are you attending?</h2>
+                            <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-lg-10 col-lg-offset-1">
+                        <div class="contact-form">
+                            <form id="rsvp-form" class="form validate-rsvp-form row" method="post">
+                                {% csrf_token %}
+                                <div class="col col-sm-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name*">
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email*">
+                                </div>
+                                <div class="col col-sm-6">
+                                   <select class="form-control" name="guest">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="0">More</option>
+                                    </select>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <select class="form-control" name="event">
+                                        <option value="All events">All events</option>
+                                        <option value="Wedding ceremony">Wedding ceremony (Lahat, South Sumatra)</option>
+                                        <option value="Reception party">Reception party (Lahat, South Sumatra)</option>
+                                        <option value="Ngunduh mantu">Ngunduh Mantu (Kediri, East Java)</option>
+                                    </select>
+                                </div>
+                                <div class="col col-sm-12">
+                                    <textarea class="form-control" name="notes" placeholder="Your Message*"></textarea>
+                                </div>
+                                <div class="col col-sm-12 submit-btn">
+                                    <button type="submit" class="theme-btn">Send Invitation</button>
+                                    <div id="loader">
+                                        <i class="ti-reload"></i>
+                                    </div>
+                                </div>
+                                <div class="col col-md-12 success-error-message">
+                                    <div id="success">Thank you</div>
+                                    <div id="error"> Error occurred while sending email. Please try again later. </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end container -->
+        </section>
+        <!-- end contact-section -->
+
+
+        <!-- start site-footer -->
+        <footer class="site-footer footer-style-1">
+            <div class="inner">
+                <div class="couple-pic">
+                    <img src="{% static "frontend/assets/images/footer-couple-pic.jpg" %}" alt>
+                </div>
+                <h2>Thank you</h2>
+                <ul class="social-links">
+                    <li><a href="#"><i class="ti-facebook"></i></a></li>
+                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                    <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                    <li><a href="#"><i class="ti-pinterest"></i></a></li>
+                </ul>
+                <p>Copyright 2019, Made with love by <a href="../../../themeforest.net/user/blue_design.html">blue design</a></p>
+            </div>
+        </footer>
+        <!-- end site-footer -->
+    </div>
+    <!-- end of page-wrapper -->
+{% endblock %}

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Our Wedding RSVP{% endblock %}</title>
+    <meta name="keywords" content="RSVP, Wedding, Django">
+    <meta content="SAMSUL, ADISATYA IT CONSULTANT" name="author">
+    <meta name="description" content="Event descriptions">
+    <meta property="og:title" content="My Wedding RSVP">
+    <meta property="og:image" content="{% static "frontend/assets/images/icon/*.png" %}">
+    <link rel="icon" href="{% static "frontend/assets/images/icon/favicon.ico" %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link href="{% static "frontend/assets/css/themify-icons.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/flaticon.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/animate.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/owl.carousel.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/owl.theme.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/slick.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/slick-theme.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/swiper.min.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/owl.transitions.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/jquery.fancybox.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/magnific-popup.css" %}" rel="stylesheet">
+    <link href="{% static "frontend/assets/css/style.css" %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block extrahead %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block content %}
+    {% endblock %}
+    {% block extrajs %}
+    {% endblock %}
+  </body>
+</html>

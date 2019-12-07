@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from rsvp.views import RSVPListCreate
+from rsvp.views import RSVPListCreate, index
 
 urlpatterns = [
+	path('', index ),
     path('admin/', admin.site.urls),
     path('api/rsvp/', RSVPListCreate.as_view()),
 ]
